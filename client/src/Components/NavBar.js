@@ -21,7 +21,7 @@ const NavBar = () => {
     if (loggedIn && user) {
         return (
             <div>
-                <h3>{user.username}'s Homepage</h3>
+                <h3>Welcome {user.username}...</h3>
                 <br/>
                 <button onClick={logoutUser}>Logout</button>
             </div>
