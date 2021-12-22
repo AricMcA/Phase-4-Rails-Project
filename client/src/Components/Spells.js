@@ -17,9 +17,7 @@ const Spells = () => {
     }
     
     if (loggedIn) {
-        // const spellsList = spells.map(s => <li>{s.name}</li>)
-        console.log(spells)
-        const spellsList = spells
+        const spellsList = spells.map(s => <li key={s.id}>{s.name}</li>)
         return (
             <div>
                 <h3>Spells:</h3>
