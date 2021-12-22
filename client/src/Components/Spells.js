@@ -12,19 +12,21 @@ const Spells = () => {
     const [ formFlag, setFormFlag ] = useState(false)
     const params = useParams()
 
-    const addSpellFlag = () => {
+    const addSpellForm = () => {
         setFormFlag(false)
     }
     
     if (loggedIn) {
-        const spellsList = spells.map(s => <li>{s.name}</li>)
+        // const spellsList = spells.map(s => <li>{s.name}</li>)
+        console.log(spells)
+        const spellsList = spells
         return (
             <div>
                 <h3>Spells:</h3>
                 {spellsList}
                 <br/>
                 {formFlag ? 
-                    <SpellForm addSpellFlag={addSpellFlag} /> : <button onClick={() => setFormFlag(true)}>Add Spell</button>
+                    <SpellForm addSpell={addSpellForm} /> : <button onClick={() => setFormFlag(true)}>Add Spell</button>
                 }
             </div>
         )
