@@ -24,6 +24,10 @@ const NavBar = () => {
                 <h3>Welcome {user.username}...</h3>
                 <br/>
                 <button onClick={logoutUser}>Logout</button>
+                <NavLink to="/spells">
+                    <button>Spells</button>
+                </NavLink>
+                <hr/>
             </div>
         )
     } else{
@@ -35,6 +39,7 @@ const NavBar = () => {
                 <NavLink to="/signup">
                     <button>Signup</button>
                 </NavLink>
+                <hr/>
             </div>
         )
     }

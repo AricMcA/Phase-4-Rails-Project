@@ -8,11 +8,16 @@ const Home = () => {
     if (loggedIn && user){
         return (
             <div>
-                <h3>{user.username}'s Homepage</h3>
+                <h1>Wizarding World Spell Journal</h1>
             </div>
         )
     } else {
-        return (<h3>Please Login or Signup to continue...</h3>)
+        return (
+            <div>
+                <h1>Wizarding World Spell Journal</h1>
+                <h3>Please Login or Signup to continue...</h3>
+            </div>
+        )
     }
 }
 
