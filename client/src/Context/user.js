@@ -7,6 +7,7 @@ const UserProvider = ({children}) => {
     const [ user, setUser ] = useState(null)
     const [ loggedIn, setLoggedIn ] = useState(false)
     const [ spells, setSpells ] = useState([])
+    
 
     useEffect(() => {
         fetch('/me')
@@ -42,6 +43,34 @@ const UserProvider = ({children}) => {
         })
     }
 
+    const editSpell = (spell) => {
+        console.log(spell)
+        fetch(`/spells/${spell.id}`, {
+            method: 'PUT',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(spell)
+        })
+        .then(res => res.json())
+        .then(spell => {
+            const newSpells = spells.filter(s => s.id !== spell.id)
+            const updatedSpells = [...newSpells, spell]
+            setSpells(updatedSpells)
+        })
+    }
+
+    const deleteSpell = (id) => {
+        fetch(`/spells/${id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then(() => {
+            const newSpells = spells.filter(s => s.id !== id)
+            setSpells(newSpells)
+        })
+    }
+
     const login = (user) => {
         setUser(user)
         fetchSpells()
@@ -61,7 +90,7 @@ const UserProvider = ({children}) => {
     }
 
     return (
-        <UserContext.Provider value={{user, login, logout, signup, loggedIn, spells, addSpell}}>
+        <UserContext.Provider value={{user, login, logout, signup, loggedIn, spells, addSpell, deleteSpell, editSpell}}>
             {children}
         </UserContext.Provider>
     )

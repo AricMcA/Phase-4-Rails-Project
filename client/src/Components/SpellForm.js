@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../Context/user'
 
-const SpellForm = ({addSpellFlag}) => {
+const SpellForm = ({addSpellForm}) => {
     
     const [ name, setName] = useState("")
     const [ description, setDescription] = useState("")
@@ -15,7 +15,7 @@ const SpellForm = ({addSpellFlag}) => {
             lethal: lethal,
             description: description
         })
-        addSpellFlag()
+        addSpellForm()
     }
 
     return (

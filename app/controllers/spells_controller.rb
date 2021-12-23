@@ -25,17 +25,25 @@ class SpellsController < ApplicationController
     end
 
     def destroy
-        # spell = current_user.spells.find_by(id: params [:id])
-        # if spell
-        #     spell.destroy
-        #     head :no_content
-        # else
-        #     render json: { error: "Not found" }, status: :not_found
-        # end
+        
+        spell = current_user.spells.find_by(id: params[:id])
+        
+        if spell
+            spell.destroy
+            head :no_content
+        else
+            render json: { error: "Not found" }, status: :not_found
+        end
     end
 
     def update
-
+        spell = current_user.spells.find_by(id: params[:id])
+        if spell
+            spell.update(spell_params)
+            render json: spell, status: :accepted
+        else
+            render json: { error: "Spell not found "}, status: :not_found
+        end
     end
 
     private
