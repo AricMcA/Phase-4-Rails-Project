@@ -18,6 +18,19 @@ class UsersController < ApplicationController
         end
     end
 
+    def index
+        user = User.all
+        render json: user
+    end
+
+    def spells_index
+        user = User.find(params[:user_id])
+        # byebug
+        spells = user.spells
+        # byebug
+        render json: spells, include: :user
+    end
+
     private
 
     def user_params

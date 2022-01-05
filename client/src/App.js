@@ -7,6 +7,8 @@ import { UserProvider } from './Context/user'
 import Signup from './Components/Signup'
 import Login from './Components/Login'
 import Spells from './Components/Spells'
+import Users from './Components/Users';
+import UsersSpells from './Components/UsersSpells';
 
 function App(props) {
   return (
@@ -19,6 +21,8 @@ function App(props) {
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/spells" element={<Spells />} />
+            <Route exact path="/users" element={<Users />} />
+            <Route exact path="/users/:id/spells" element={<UsersSpells />} />
           </Routes>
         </Router>
       </UserProvider>
