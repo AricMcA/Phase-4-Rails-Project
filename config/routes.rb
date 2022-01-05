@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
   get '/users/:user_id/spells', to: 'users#spells_index'
+  get'/darkarts', to: 'spells#darkarts'
   
   resources :spells
   resources :users, only: [:index]

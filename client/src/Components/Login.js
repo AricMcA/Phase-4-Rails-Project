@@ -33,7 +33,7 @@ const Login = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <label>Username:</label>
+            <label className="text-teal-300">Username:</label>
                 <input type='text' id='username' value={username} onChange={(e) => setUsername(e.target.value)}/>
                 <br/>
                 <label>Password:</label>

@@ -9,6 +9,7 @@ import Login from './Components/Login'
 import Spells from './Components/Spells'
 import Users from './Components/Users';
 import UsersSpells from './Components/UsersSpells';
+import DarkArts from './Components/DarkArts';
 
 function App(props) {
   return (
@@ -23,6 +24,7 @@ function App(props) {
             <Route exact path="/spells" element={<Spells />} />
             <Route exact path="/users" element={<Users />} />
             <Route exact path="/users/:id/spells" element={<UsersSpells />} />
+            <Route exact path="/darkarts" element={<DarkArts />} />
           </Routes>
         </Router>
       </UserProvider>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Users = () => {
     const [ users, setUsers ] = useState([])
@@ -10,16 +10,16 @@ const Users = () => {
         .then(data => setUsers(data))
     }, [])
 
-    const usersList = users.map(u =><li> <Link to={`/users/${u.id}/spells`}>{u.username}</Link> </li>
+    const usersList = users.map(u =><li key={u.id}> <Link to={`/users/${u.id}/spells`}>{u.username}</Link> </li>
     )
 
     return (
         <div>
 
             <h2>Users:</h2>
-            <ul>
+            {/* <ul> */}
             {usersList}
-            </ul>
+            {/* </ul> */}
         </div>
     )
 }

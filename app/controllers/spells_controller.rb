@@ -46,6 +46,11 @@ class SpellsController < ApplicationController
         end
     end
 
+    def darkarts
+        spells = Spell.where("lethal = ?", "Very Lethal")
+        render json: spells
+    end
+
     private
 
     def current_user

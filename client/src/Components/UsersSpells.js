@@ -13,7 +13,7 @@ const UsersSpells = () => {
         .then(data => setUserSpells(data))
     }, [])
 
-    const userSpellsList = userSpells.map(s => <li key={s.id}>{s.name}</li>)
+    const userSpellsList = userSpells.map(s => <li key={s.id}>{s.name}: {s.description} -- {s.lethal}</li>)
 
     return (
         <div>
